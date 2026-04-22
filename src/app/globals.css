@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #0a0a0f;
+  --bg-card: #111118;
+  --bg-elevated: #1a1a24;
+  --bg-border: #2a2a38;
+  --accent-green: #00e676;
+  --accent-red: #ff5252;
+  --accent-blue: #448aff;
+  --accent-purple: #e040fb;
+  --accent-amber: #ffab40;
+  --text-primary: #f0f0ff;
+  --text-secondary: #8888aa;
+  --text-muted: #44445a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--bg-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Custom utilities */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-border);
+  border-radius: 12px;
+}
+
+.card-elevated {
+  background: var(--bg-elevated);
+  border: 1px solid var(--bg-border);
+  border-radius: 10px;
+}
+
+.glow-green { box-shadow: 0 0 20px rgba(0, 230, 118, 0.15); }
+.glow-red   { box-shadow: 0 0 20px rgba(255, 82, 82, 0.15); }
+.glow-blue  { box-shadow: 0 0 20px rgba(68, 138, 255, 0.15); }
+
+input, select, textarea {
+  background: var(--bg-elevated);
+  border: 1px solid var(--bg-border);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent-blue);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-muted);
+}
+
+select option {
+  background: var(--bg-elevated);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.35s ease both;
+}
+
+.animate-fade-up-1 { animation: fadeUp 0.35s ease 0.05s both; }
+.animate-fade-up-2 { animation: fadeUp 0.35s ease 0.10s both; }
+.animate-fade-up-3 { animation: fadeUp 0.35s ease 0.15s both; }
+.animate-fade-up-4 { animation: fadeUp 0.35s ease 0.20s both; }
