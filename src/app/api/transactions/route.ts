@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import Transaction from "@/models/Transaction";
-
+export const dynamic = "force-dynamic";
 export async function GET(req: NextRequest) {
   try {
     await connectDB();
